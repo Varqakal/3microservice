@@ -1,5 +1,6 @@
 package com.microservice.order_service.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,5 +12,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class InventoryResponse {
     private String skuCode;
+    @JsonProperty("isInStock")
     private boolean isInStock;
 }

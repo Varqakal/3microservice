@@ -42,7 +42,7 @@ public class OrderService {
         //stock
         InventoryResponse[] inventoryResponsArray = webClient.get()
                         .uri("http://localhost:8082/api/inventory",
-                                uriBuilder -> uriBuilder.queryParam("skuCodes", skuCodes).build())
+                                uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
                                 .retrieve()
                                         .bodyToMono(InventoryResponse[].class)
                                                 .block();
@@ -55,7 +55,6 @@ public class OrderService {
         } else {
             throw new IllegalArgumentException("Product is not in stock, please try again later");
         }
-        orderRepository.save(order);
     }
 
 
